@@ -27,11 +27,11 @@ function calculateKPIs(data) {
   const islands = new Set(data.map(r => r.island)).size;
   const favorable = data.filter(r => r.cloud_percentage <= 20 && r.sensor_suitability >= 80).length;
   return {
-    totalPasses: {label: 'Pasadas satelitales', value: total, unit: '', icon: '🛰️'},
-    avgCloud: {label: 'Nubosidad promedio', value: avgCloud, unit: '%', icon: '☁️'},
-    avgSuit: {label: 'Aptitud promedio', value: avgSuit, unit: '', icon: '📡'},
-    islandsMonitored: {label: 'Islas monitoreadas', value: islands, unit: '', icon: '🏝️'},
-    favorablePasses: {label: 'Pasadas favorables', value: favorable, unit: '', icon: '✅'}
+    totalPasses: { label: 'Pasadas satelitales', value: total, unit: '', icon: '🛰️' },
+    avgCloud: { label: 'Nubosidad promedio', value: avgCloud, unit: '%', icon: '☁️' },
+    avgSuit: { label: 'Aptitud promedio', value: avgSuit, unit: '', icon: '📡' },
+    islandsMonitored: { label: 'Islas monitoreadas', value: islands, unit: '', icon: '🏝️' },
+    favorablePasses: { label: 'Pasadas favorables', value: favorable, unit: '', icon: '✅' }
   };
 }
 
@@ -55,5 +55,5 @@ function renderKPIs(kpis) {
 }
 
 // Exported for app.js
-export {loadDataset, calculateKPIs, renderKPIs};
+export { loadDataset, calculateKPIs, renderKPIs };
 
