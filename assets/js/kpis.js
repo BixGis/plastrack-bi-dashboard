@@ -8,7 +8,7 @@
  * @returns {Promise<Array<Object>>}
  */
 async function loadDataset() {
-  const response = await fetch('../data/data_copernicus_sample.json');
+  const response = await fetch('../../data/data_copernicus_sample.json');
   if (!response.ok) {
     throw new Error('No se pudo cargar el dataset');
   }
