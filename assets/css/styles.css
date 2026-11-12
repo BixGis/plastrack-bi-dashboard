@@ -1,0 +1,139 @@
+/*------------------------------------------------
+   PlasTrack – Dark theme UI styling
+  ------------------------------------------------*/
+
+/* Global resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117; /* GitHub dark background */
+  color: #c9d1d9; /* Light gray */
+}
+
+header {
+  background: linear-gradient(135deg, #0f62fe, #0046d5);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+header .badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ff6f61;
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* KPI cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card .icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #58a6ff;
+}
+
+.card .value {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0.3rem 0;
+  color: #fff;
+}
+
+.card .label {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+/* Map container */
+.map-container {
+  height: 500px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Charts container */
+.charts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.chart-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* Filter UI */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.filter-bar select, .filter-bar button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #30363d;
+  background: #0d1117;
+  color: #c9d1d9;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.filter-bar button {
+  cursor: pointer;
+  background: #238636;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+  .map-container {
+    height: 300px;
+  }
+}
+

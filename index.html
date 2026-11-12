@@ -22,13 +22,17 @@
     </header>
     <main>
         <section id="kpis" class="cards"></section>
+        <div class="filter-bar">
+            <select id="filter-island"><option value="all">Todas las islas</option></select>
+            <select id="filter-satellite"><option value="all">Todos los satélites</option></select>
+            <select id="filter-cloud"><option value="all">Todas las nubosidades</option><option value="0-20">0‑20%</option><option value="21-50">21‑50%</option><option value="51-100">51‑100%</option></select>
+            <button id="reset-filters">Restablecer</button>
+        </div>
         <section id="map" class="map-container"></section>
         <section id="charts" class="charts-container"></section>
     </main>
-    <script src="assets/js/kpis.js"></script>
-    <script src="assets/js/map.js"></script>
-    <script src="assets/js/charts.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>
 
