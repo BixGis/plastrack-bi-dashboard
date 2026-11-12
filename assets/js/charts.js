@@ -174,3 +174,4 @@ function updateCharts(charts, data) {
 }
 
 export { initCharts, updateCharts };
+
