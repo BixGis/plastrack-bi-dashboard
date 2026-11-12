@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlasTrack BI Dashboard</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+2yMfrbYcVsV5K7RGFYdsnLv3CkT6M6bZJM5Jk0lM=" crossorigin=""/>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j6v61Z8b5hBsptVjg5bK9eD6uI/cG6t4J4gZ3Cg=" crossorigin=""></script>
+</head>
+<body>
+    <header>
+        <h1>PlasTrack</h1>
+        <p>Plataforma de monitoreo y análisis de pasadas satelitales en Galápagos</p>
+        <div id="status">Estado: <span>Online</span></div>
+        <div id="last-update">Última actualización: <span id="update-date">-</span></div>
+        <div class="badge">DATOS SIMULADOS</div>
+    </header>
+    <main>
+        <section id="kpis" class="cards"></section>
+        <section id="map" class="map-container"></section>
+        <section id="charts" class="charts-container"></section>
+    </main>
+    <script src="assets/js/kpis.js"></script>
+    <script src="assets/js/map.js"></script>
+    <script src="assets/js/charts.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
+
