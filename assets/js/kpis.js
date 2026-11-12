@@ -8,11 +8,24 @@
  * @returns {Promise<Array<Object>>}
  */
 async function loadDataset() {
-  const response = await fetch('data/data_copernicus_sample.json');
-  if (!response.ok) {
-    throw new Error('No se pudo cargar el dataset');
+  const paths = [
+    './data/data_copernicus_sample.json',
+    'data/data_copernicus_sample.json',
+    '../data/data_copernicus_sample.json'
+  ];
+
+  for (const path of paths) {
+    try {
+      const response = await fetch(path);
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch (e) {
+      // Intentar con la siguiente ruta
+    }
   }
-  return response.json();
+
+  throw new Error('No se pudo cargar el dataset desde ninguna de las rutas relativas');
 }
 
 /**
@@ -22,14 +35,14 @@ async function loadDataset() {
  */
 function calculateKPIs(data) {
   const total = data.length;
-  const avgCloud = (data.reduce((s, r) => s + r.cloud_percentage, 0) / total).toFixed(1);
-  const avgSuit = (data.reduce((s, r) => s + r.sensor_suitability, 0) / total).toFixed(1);
+  const avgCloud = total > 0 ? (data.reduce((s, r) => s + r.cloud_percentage, 0) / total).toFixed(1) : '0.0';
+  const avgSuit = total > 0 ? (data.reduce((s, r) => s + r.sensor_suitability, 0) / total).toFixed(1) : '0.0';
   const islands = new Set(data.map(r => r.island)).size;
   const favorable = data.filter(r => r.cloud_percentage <= 20 && r.sensor_suitability >= 80).length;
   return {
     totalPasses: { label: 'Pasadas satelitales', value: total, unit: '', icon: '🛰️' },
     avgCloud: { label: 'Nubosidad promedio', value: avgCloud, unit: '%', icon: '☁️' },
-    avgSuit: { label: 'Aptitud promedio', value: avgSuit, unit: '', icon: '📡' },
+    avgSuit: { label: 'Aptitud promedio', value: avgSuit, unit: '/100', icon: '📡' },
     islandsMonitored: { label: 'Islas monitoreadas', value: islands, unit: '', icon: '🏝️' },
     favorablePasses: { label: 'Pasadas favorables', value: favorable, unit: '', icon: '✅' }
   };

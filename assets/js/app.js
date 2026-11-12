@@ -86,7 +86,11 @@ async function init() {
   } catch (e) {
     console.error('❗ Error al iniciar la aplicación:', e);
     const main = document.querySelector('main');
-    main.innerHTML = `<p style="color:#ff7b72;">❗ Error al cargar los datos. Verifica la consola del navegador.</p>`;
+    main.innerHTML = `
+      <div style="background:#161b22;border:1px solid #f85149;padding:1.5rem;border-radius:8px;text-align:center;margin-top:1rem;">
+        <p style="color:#ff7b72;font-size:1.1rem;font-weight:bold;">❗ Error al inicializar PlasTrack</p>
+        <p style="color:#8b949e;margin-top:0.5rem;font-family:monospace;">${e.message || e}</p>
+      </div>`;
   }
 }
 
